@@ -1,0 +1,121 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Heart Disease Prediction</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: black;
+            background-image: url('/static/images/2.jpg'); 
+            background-size: cover;
+            padding: 2em;
+        }
+
+        .container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: rgb(0, 0, 0);
+        }
+
+        .scrollable-container {
+            width: 400px;
+            max-height: 500px;
+            overflow: auto;
+            margin: 0 auto;
+            border-radius: 10px;
+        }
+
+        .scrollable-container::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        .scrollable-container::-webkit-scrollbar-thumb {
+            background-color: #555;
+            border-radius: 5px;
+        }
+
+        .scrollable-container::-webkit-scrollbar-track {
+            background-color: #ddd;
+            border-radius: 5px;
+        }
+
+        form {
+            width: 300px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: rgba(236, 218, 218, 0.2);
+            border-radius: 10px;
+            background-image: url('/static/images/4.png');
+            color: black;
+            
+        }
+
+        label {
+            display: block;
+            margin: 10px 0;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin: 5px 0;
+            box-sizing: border-box;
+            color: black;
+        }
+
+        .disclaimer {
+            position: fixed;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: rgb(0, 0, 0);
+            font-size: 12px;
+            animation: movingText 10s linear infinite;
+        }
+
+        @keyframes movingText {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(calc(-1 * 100%)); }
+        }
+    </style>
+</head>
+<body>
+    <div class="disclaimer">Predictions of this model are not always accurate. Please do consult a doctor.</div>
+    <div class="container">
+        <h1>Heart Disease Prediction</h1>
+        <div class="scrollable-container">
+            <form action="/input" method="POST">
+                <label for="age">Age:</label><br>
+                <input type="number" id="age" name="age" min="0" required><br><br>
+            
+                <label for="sex">Sex (0: Female, 1: Male):</label><br>
+                <input type="number" id="sex" name="sex" min="0" max="1" required><br><br>
+            
+                <label for="cp">Chest Pain Type (0-3):</label><br>
+                <input type="number" id="cp" name="cp" min="0" max="3" required><br><br>
+            
+                <label for="trestbps">Resting Blood Pressure:</label><br>
+                <input type="number" id="trestbps" name="trestbps" min="0" required><br><br>
+            
+                <label for="chol">Cholesterol:</label><br>
+                <input type="number" id="chol" name="chol" min="0" required><br><br>
+            
+                <label for="thalach">Maximum Heart Rate:</label><br>
+                <input type="number" id="thalach" name="thalach" min="0" required><br><br>
+            
+                <!-- Predict button -->
+                <button type="submit">Predict</button>
+            
+                <!-- Cancel button -->
+                <button type="button" onclick="window.location.href='/';">Cancel</button>
+            </form>            
+        </div>
+    </div>
+</body>
+</html>

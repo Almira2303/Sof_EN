@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+</head>
+<body style="margin: 0; padding: 0; font-family: Arial, sans-serif; 
+    background: url('{{ url_for('static', filename='images/2.jpg') }}') no-repeat center fixed; 
+    background-size: cover; /* Background image */
+    display: flex; justify-content: center; align-items: center; height: 100vh; overflow: hidden;">
+
+    <!-- Registration Container with Blurred Effect -->
+    <div style="position: relative; z-index: 2; background-color: white; padding: 30px; border-radius: 15px; 
+        width: 350px; text-align: left; box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5); backdrop-filter: blur(10px);">
+        <form action="/register" method="POST" style="display: flex; flex-direction: column;">
+
+            <!-- Name Label and Input -->
+            <label for="name" style="color: #333; margin-bottom: 5px;">Full Name:</label>
+            <input type="text" id="name" name="name" required style="padding: 10px; border-radius: 8px; 
+                border: 1px solid #ccc; margin-bottom: 15px; background-color: #f9f9f9;">
+
+            <!-- Email Label and Input -->
+            <label for="email" style="color: #333; margin-bottom: 5px;">Email:</label>
+            <input type="email" id="email" name="email" required style="padding: 10px; border-radius: 8px; 
+                border: 1px solid #ccc; margin-bottom: 15px; background-color: #f9f9f9;">
+
+            <!-- Password Label and Input -->
+            <label for="password" style="color: #333; margin-bottom: 5px;">Password:</label>
+            <input type="password" id="password" name="password" required style="padding: 10px; border-radius: 8px; 
+                border: 1px solid #ccc; margin-bottom: 20px; background-color: #f9f9f9;">
+
+            <button type="submit" style="padding: 10px; border-radius: 8px; border: none; 
+                background-color: #0b0c0b; color: white; font-size: 16px; cursor: pointer;">Register</button>
+        </form>
+
+        <!-- Registration Link Container -->
+        <div style="margin-top: 20px; padding: 10px; background-color: #f0f0f0; border-radius: 8px; text-align: center;">
+            <p style="color: #333; margin: 0;">Already have an account? <a href="/login" style="color: #00bcd4; text-decoration: none;">Login here</a></p>
+        </div>
+
+    </div>
+</body>
+</html>

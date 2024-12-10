@@ -1,0 +1,113 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Heart Disease Prediction</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: black;
+            background-image: url('/static/images/2.jpg'); 
+            background-size: 110%;
+        }
+
+        .container {
+            position: center;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: white;
+        }
+
+        .scrollable-container {
+            width: 400px;
+            max-height: 500px;
+            overflow: auto;
+            margin: 0 auto;
+            border-radius: 10px;
+        }
+
+        .scrollable-container::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        .scrollable-container::-webkit-scrollbar-thumb {
+            background-color: #000000;
+            border-radius: 5px;
+        }
+
+        .scrollable-container::-webkit-scrollbar-track {
+            background-color: #080808;
+            border-radius: 5px;
+        }
+
+        form {
+            width: 300px;
+            margin: 0 auto;
+            padding: 10px;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 5px;
+        }
+
+        label {
+            display: block;
+            margin: 10px 0;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin: 5px 0;
+            box-sizing: border-box;
+        }
+
+        .disclaimer {
+            position: fixed;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            font-size: 12px;
+            animation: movingText 10s linear infinite;
+        }
+
+        @keyframes movingText {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(calc(-1 * 100%)); }
+        }
+
+        h1{
+            text-align: center;
+            font-size: 16px;
+        }
+        p{
+            text-decoration: dashed;
+            text-align: center;
+            font-size: 50px;
+        }
+        
+    </style>
+</head>
+<body>
+    <h1>Predictions are not always accurate. Consult a doctor for confirmation.</h1>
+    <p>Heart Disease</p>
+    <form action="/input" method="POST">
+        <label for="age">Age:</label><br>
+        <input type="number" id="age" name="age" min="0" required><br><br>
+        <label for="sex">Sex (0: Female, 1: Male):</label><br>
+        <input type="number" id="sex" name="sex" min="0" max="1" required><br><br>
+        <label for="chest_pain_type">Chest Pain Type (0-3):</label><br>
+        <input type="number" id="chest_pain_type" name="chest_pain_type" min="0" max="3" required><br><br>
+        <label for="resting_bp">Resting Blood Pressure:</label><br>
+        <input type="number" id="resting_bp" name="resting_bp" min="0" required><br><br>
+        <label for="cholesterol">Cholesterol:</label><br>
+        <input type="number" id="cholesterol" name="cholesterol" min="0" required><br><br>
+        <label for="max_heart_rate">Maximum Heart Rate:</label><br>
+        <input type="number" id="max_heart_rate" name="max_heart_rate" min="0" required><br><br>
+        <button type="submit">Predict</button>
+    </form>
+</body>
+</html>

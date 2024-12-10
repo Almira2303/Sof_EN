@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart Disease Prediction Result</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: url('/static/images/medical_theme.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 500px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+        h1 {
+            font-size: 24px;
+            color: #2c3e50;
+        }
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+        .level {
+            font-weight: bold;
+            color: #e74c3c;
+        }
+        .advice {
+            margin-top: 20px;
+            font-size: 16px;
+            color: #3498db;
+        }
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        a:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Heart Disease Prediction Result</h1>
+        <div class="result">
+            {% if level == 4 %}
+                <p class="level">LEVEL: 4 - Urgency</p>
+                <p>Emergency admission to the hospital needed! Medication required.</p>
+            {% elif level == 3 %}
+                <p class="level">LEVEL: 3 - High Risk</p>
+                <p>Heart disease risk detected. Please immediately consult a doctor and follow dietary recommendations from your doctor.</p>
+            {% elif level == 2 %}
+                <p class="level">LEVEL: 2 - Low Risk</p>
+                <p>Low risk detected. However, please consult a doctor in a nearby clinic.</p>
+            {% elif level == 1 %}
+                <p class="level">LEVEL: 1 - Healthy</p>
+                <p>No heart disease detected. You're healthy. Maintain a balanced diet and exercise regularly.</p>
+            {% else %}
+                <p class="level">Recommendation</p>
+                <p>Maintain a healthy lifestyle. Regular exercise and balanced nutrition are key to prevention.</p>
+            {% endif %}
+        </div>
+        <div class="advice">
+            <p>Note: These predictions are based on data inputs and may not be 100% accurate. Always consult a medical professional for advice.</p>
+        </div>
+        <a href="/input">Predict Again</a>
+        <a href="/logout">Logout</a>
+    </div>
+</body>
+</html>

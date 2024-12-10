@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart Disease Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: url('/static/images/2.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+            text-align: center;
+            padding: 2em;
+        }
+        a {
+            color: #ffcccb;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .disclaimer {
+            position: fixed;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: rgb(15, 15, 15);
+            font-size: 12px;
+            animation: movingText 10s linear infinite;
+        }
+        @keyframes movingText {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(calc(-1 * 100%)); }
+        }
+    </style>
+</head>
+<body>
+    <div class="disclaimer">
+        <strong>Note:</strong> Predictions are not always accurate. Please consult a doctor.
+    </div>
+    <h1>Welcome to the Heart Disease Prediction System</h1>
+    <p>Your health is our priority. Start by registering or logging in to proceed.</p>
+    <a href="/register">Register</a> | <a href="/login">Login</a>
+</body>
+</html>
