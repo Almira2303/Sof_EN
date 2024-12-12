@@ -61,19 +61,9 @@
     <div class="container">
         <h1>Heart Disease Prediction Result</h1>
         <div class="result">
-            {% if level == 4 %}
-                <p class="level">LEVEL: 4 - Urgency</p>
-                <p>Emergency admission to the hospital needed! Medication required.</p>
-            {% elif level == 3 %}
-                <p class="level">LEVEL: 3 - High Risk</p>
-                <p>Heart disease risk detected. Please immediately consult a doctor and follow dietary recommendations from your doctor.</p>
-            {% elif level == 2 %}
-                <p class="level">LEVEL: 2 - Low Risk</p>
-                <p>Low risk detected. However, please consult a doctor in a nearby clinic.</p>
-            {% elif level == 1 %}
-                <p class="level">LEVEL: 1 - Healthy</p>
-                <p>No heart disease detected. You're healthy. Maintain a balanced diet and exercise regularly.</p>
-            {% else %}
+            <p class="level">{{ risk_level }}</p>
+            <p>{{ risk_message }}</p>
+            {% if risk_level == "Level 1: - Healthy" %}
                 <p class="level">Recommendation</p>
                 <p>Maintain a healthy lifestyle. Regular exercise and balanced nutrition are key to prevention.</p>
             {% endif %}

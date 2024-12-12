@@ -1,8 +1,9 @@
-import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
-import joblib  # Import joblib for saving the model
+import pickle  
+
+fileObj = open('model.obj', 'wb')
 
 # Importing dataset
 x = pd.read_csv(r'train_heart.csv')
@@ -55,6 +56,13 @@ b_test = y['target']
 model_rf = RandomForestClassifier()
 model_rf.fit(a_train, b_train)
 
+model = {
+    'classifier': model_rf
+}
+
+pickle.dump(model,fileObj)
+fileObj.close()
+
 # Predictions from Random Forest model
 b_pred_rf = model_rf.predict(a_test)
 
@@ -75,9 +83,9 @@ plt.xlabel('Predicted Label')
 plt.ylabel('True Label')
 plt.show()
 
-# Save the model using joblib
-joblib.dump(model_rf, 'heart_disease_rf_model.pkl')
-print("Model saved as 'heart_disease_rf_model.pkl'")
+# # Save the model using joblib
+# pickle.dump(model_rf, 'heart_disease_rf_model.obj')
+# print("Model saved as 'heart_disease_rf_model.obj'")
 
 # Checking model with random user input (only 6 features)
 age = int(input("Enter age: "))
